@@ -10,7 +10,7 @@ class Printer(Document):
 
 # Get a list of printers from cups
 @frappe.whitelist()
-def get_printer_list(self):
+def get_printer_list():
 	try:
 		conn = cups.Connection()
 		printers = conn.getPrinters()
