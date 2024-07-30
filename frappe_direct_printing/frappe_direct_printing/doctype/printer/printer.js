@@ -4,7 +4,7 @@
 frappe.ui.form.on('Printer', {
     onload: function(frm) {
         frappe.call({
-            method: "frappe_direct_printing.printer.get_printer_list",
+            method: "frappe_direct_printing.doctype.frappe_direct_printing.printer.get_printer_list",
             callback: function(r) {
                 if (r.message) {
                     let printer_field = frm.fields_dict['address'];
