@@ -6,14 +6,12 @@ from frappe.model.document import Document
 import cups
 
 class Printer(Document):
-	pass
-
-
-@frappe.whitelist()
-def get_printer_list():
-	try:
-		conn = cups.Connection()
-		printers = conn.getPrinters()
-		return [f"{prt} ({printers[prt]['printer-make-and-model'].split(',')[0]})" for prt in printers]
-	except:
-		return ['printer not found']
+	# Get a list of printers from cups
+	@frappe.whitelist()
+	def get_printer_list(self):
+		try:
+			conn = cups.Connection()
+			printers = conn.getPrinters()
+			return [f"{prt} ({printers[prt]['printer-make-and-model'].split(',')[0]})" for prt in printers]
+		except:
+			return ['printer not found']
