@@ -20,7 +20,7 @@ def print_test_page(printer_name):
 		conn = cups.Connection()
 		pdf_page = f'{os.getcwd()}/assets/frappe_direct_printing/misc/print_test.pdf'
 		options = {}
-		print_job_id = conn.printFile(printer_name, pdf_page, "Frappe Print Test Page", options)
+		print_job_id = conn.printFile(printer_name.split()[0], pdf_page, "Frappe Print Test Page", options)
 		return f"Print job was sent with ID: {print_job_id}"
 
 	except cups.IPPError as e:
