@@ -13,5 +13,23 @@ frappe.ui.form.on('Printer', {
                 }
             }
         });
+    },
+    refresh: function(frm) {
+        frm.fields_dict['print_test_page'].input.onclick = function() {
+            var printer_name = frm.doc.address;
+            frappe.call({
+                method: "frappe_direct_printing.tools.print_test_page",
+                args: {
+                    printer_name: printer_name
+                },
+                callback: function(r) {
+                    if (r.message) {
+                        frappe.msgprint(r.message);
+                    }
+                }
+            });
+        };
     }
 });
+
+
