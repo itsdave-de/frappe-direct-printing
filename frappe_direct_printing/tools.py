@@ -17,7 +17,7 @@ def get_printer_list():
 def print_test_page(printer_name):
 	try:
 		conn = cups.Connection()
-		pdf_page = 'frappe_direct_printing/public/misc/print_test.pdf'
+		pdf_page = '../apps/frappe_direct_printing/frappe_direct_printing/public/misc/print_test.pdf'
 		print_job_id = conn.printFile(printer_name, pdf_page, "Frappe Print Test Page", {})
 		return f"Print job was sent with ID: {print_job_id}"
 
