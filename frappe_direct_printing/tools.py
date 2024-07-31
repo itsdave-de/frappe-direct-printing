@@ -1,5 +1,6 @@
 import frappe
 import cups
+import os
 
 # Get a list of printers from cups
 @frappe.whitelist()
@@ -22,4 +23,4 @@ def print_test_page(printer_name):
 		return f"Print job was sent with ID: {print_job_id}"
 
 	except cups.IPPError as e:
-		return f"Error sending print job: {e}"
+		return f"debug ({os.getcwd()}) Error sending print job: {e}"
