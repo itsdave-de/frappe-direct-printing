@@ -10,8 +10,7 @@
  "field_order": [
   "caption",
   "description",
-  "address",
-  "type",
+  "printer_name",
   "status",
   "print_test_page"
  ],
@@ -27,17 +26,6 @@
    "label": "Description"
   },
   {
-   "fieldname": "address",
-   "fieldtype": "Data",
-   "label": "Address"
-  },
-  {
-   "fieldname": "type",
-   "fieldtype": "Select",
-   "label": "Type",
-   "options": "CUPS\nRAW"
-  },
-  {
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
@@ -47,11 +35,16 @@
    "fieldname": "print_test_page",
    "fieldtype": "Button",
    "label": "Print Test Page"
+  },
+  {
+   "fieldname": "printer_name",
+   "fieldtype": "Data",
+   "label": "CUPS Printer name"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-25 14:34:52.461764",
+ "modified": "2024-08-01 15:16:45.460668",
  "modified_by": "Administrator",
  "module": "Frappe Direct Printing",
  "name": "Printer",
