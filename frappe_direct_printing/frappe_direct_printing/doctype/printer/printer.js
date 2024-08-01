@@ -2,21 +2,9 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Printer', {
-    onload: function(frm) {
-        frappe.call({
-            method: "frappe_direct_printing.tools.get_printer_list",
-            callback: function(r) {
-                if (r.message) {
-                    let printer_field = frm.fields_dict['address'];
-                    printer_field.df.options = r.message;
-                    printer_field.refresh();
-                }
-            }
-        });
-    },
     refresh: function(frm) {
         frm.fields_dict['print_test_page'].input.onclick = function() {
-            var printer_name = frm.doc.address;
+            var printer_name = frm.doc.printer_name;
             frappe.call({
                 method: "frappe_direct_printing.tools.print_test_page",
                 args: {
